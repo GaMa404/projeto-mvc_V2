@@ -2,6 +2,25 @@ CREATE DATABASE db_sistemaV2;
 
 USE db_sistemaV2;
 
+-- Criando um usuário
+CREATE USER 'aluno'@'localhost' IDENTIFIED BY '123';
+
+-- Adicionar todos os privilégios
+-- GRANT ALL PRIVILEGES ON db_sistemaV2.* TO 'aluno'@'localhost'; 
+
+-- Remover todos os privilégios
+REVOKE ALL, GRANT OPTION FROM 'aluno'@'localhost';
+
+-- Adicionando apenas privilégios que o usuário terá acesso (nesse caso, insert, select e update)
+GRANT INSERT, SELECT, UPDATE ON db_sistemaV2.* TO 'aluno'@'localhost' IDENTIFIED BY '123';
+
+-- Liberar privilégios ao usuário
+FLUSH PRIVILEGES;
+
+-- Mostrar privilégios que o usuário tem acesso
+SHOW GRANTS FOR aluno@localhost;
+
+
 CREATE TABLE categoria_produto
 (
     id INT AUTO_INCREMENT,
@@ -61,3 +80,6 @@ CREATE TABLE usuario
     senha VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
 );
+
+INSERT INTO usuario (nome, email, senha) VALUES ("a", "aaaa@gmail.com", sha1("123"));
+select * from usuario;
