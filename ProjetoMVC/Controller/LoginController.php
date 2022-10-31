@@ -24,7 +24,7 @@ class LoginController extends Controller
         {
             $_SESSION['usuario_logado'] = $usuario_logado;
 
-            header("Location: /");
+            header("Location: /home");
         }
         else
         {

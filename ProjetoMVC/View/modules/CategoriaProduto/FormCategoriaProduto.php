@@ -21,7 +21,7 @@
 
             <br> <br>
 
-            <button type="submit"> Enviar: </button>
+            <button type="submit"> Enviar </button>
         </fieldset>
     </form>
 </body>
