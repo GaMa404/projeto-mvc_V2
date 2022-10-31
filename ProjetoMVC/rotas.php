@@ -7,14 +7,36 @@ use ProjetoMVC\Controller\
     CategoriaProdutoController,
     CargoController,
     FuncionarioController,
-    LoginController
+    LoginController,
+    CadastroController
 };
 
 $uri_parse = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 switch($uri_parse)
 {
-    ## Rotas para login
+    case '/':
+        include 'View/modules/Login/FormLogin.php';
+    break;
+
+    case '/home':
+        include 'View/modules/Home/home.php';
+    break;
+
+    ## ============== Rotas para cadastro ==============
+    case '/cadastro/form':
+        CadastroController::form();
+    break;
+
+    case '/cadastro/save':
+        CadastroController::save();
+    break;
+
+    case '/cadastro/update';
+        CadastroController::update();
+    break;
+
+    ## ============== Rotas para login ==============
     case '/login':
         LoginController::index();
     break;
@@ -27,7 +49,7 @@ switch($uri_parse)
         LoginController::logout();
     break;
 
-    ## Rotas para pessoa
+    ## ============== Rotas para pessoa ==============
     case '/pessoa':
         PessoaController::index();
     break;
@@ -45,7 +67,7 @@ switch($uri_parse)
     break;
     
 
-    ## Rotas para produto
+    ## ============== Rotas para produto ==============
     case '/produto':
         ProdutoController::index();
     break;
@@ -62,7 +84,7 @@ switch($uri_parse)
         ProdutoController::delete();
     break;
 
-    ## Rotas para categoria_produto
+    ## ============== Rotas para categoria_produto ==============
     case '/categoria_produto':
         CategoriaProdutoController::index();
     break;
@@ -80,7 +102,7 @@ switch($uri_parse)
     break;
 
 
-    ## Rotas para cargo
+    ## ============== Rotas para cargo ==============
     case '/cargo':
         CargoController::index();
     break;
@@ -98,7 +120,7 @@ switch($uri_parse)
     break;
 
 
-    ## Rotas para funcionario
+    ## ============== Rotas para funcionario ==============
     case '/funcionario':
         FuncionarioController::index();
     break;
@@ -113,5 +135,11 @@ switch($uri_parse)
 
     case '/funcionario/delete':
         FuncionarioController::delete();
+    break;
+    
+    ## ========================================================
+
+    default:
+        echo("Erro 404!");
     break;
 }
