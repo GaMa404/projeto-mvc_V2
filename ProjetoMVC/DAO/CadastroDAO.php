@@ -20,26 +20,26 @@ class CadastroDAO extends DAO
 
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->email);
-        $stmt->bindValue(3, $model->senha);
+        $stmt->bindValue(3, $model->nova_senha);
 
         $stmt->execute();
     }
 
     public function update(CadastroModel $model)
     {
-        $sql = 'UPDATE cadastro SET senha=? WHERE email = ? AND senha = ?';
+        $sql = 'UPDATE usuario SET senha = sha1(?) WHERE email = ?';
 
         $stmt = $this->conexao->prepare($sql);
 
-        $stmt->bindValue(1, $model->senha);
-        $stmt->bindValue(2, $model->id);
+        $stmt->bindValue(1, $model->nova_senha);
+        $stmt->bindValue(2, $model->email);
         
         $stmt->execute();
     }
 
     public function select()
     {
-        $sql = 'SELECT * FROM cadastro';
+        $sql = 'SELECT * FROM usuario';
 
         $stmt = $this->conexao->prepare($sql);
 

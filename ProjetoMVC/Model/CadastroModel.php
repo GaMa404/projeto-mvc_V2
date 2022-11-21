@@ -6,7 +6,7 @@ use ProjetoMVC\DAO\CadastroDAO;
 
 class CadastroModel
 {
-    public $id, $nome, $email, $senha;
+    public $id, $nome, $email, $nova_senha;
 
     public function save()
     {
@@ -16,16 +16,13 @@ class CadastroModel
         {
             $dao->insert($this);
         }
+        else
+        {
+            $dao->update($this);
+        }
 
         header('Location: /login');
     } 
-    
-    public function update()
-    {
-        $dao = new CadastroDAO();
-
-        $dao->update($this);
-    }
 
     public function getAllRows()
     {

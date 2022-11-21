@@ -5,25 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar Senha</title>
+    <style>
+        input, label {display: block}
+    </style>
 </head>
 
 <body>
-<form action="/cadastro/update" method="post">
+<form action="/cadastro/save" method="post">
         <fieldset>
             <legend> Alterar Senha </legend>
 
             <input type="hidden" value="<?= $model->id ?>" name="id" />
+            <input type="hidden" value="<?= $model->nome?>" name="nome" />
 
             <label for="email"> Email: </label>
-            <input type="text" name="email" id="email" value="<?= $model->email ?>" />
+            <input type="text" name="email" id="email" />
+
+            <br> <br>
 
             <label for="senha_atual"> Senha Atual: </label>
-            <input type="password" name="senha_atual" id="senha_atual" value="<?= $model->senha_atual ?>" />
+            <input type="password" name="senha_atual" id="senha_atual" />
 
             <br> <br>
 
             <label for="nova_senha"> Nova Senha: </label>
-            <input type="password" name="nova_senha" id="nova_senha" value="<?= $model->nova_senha ?>" />
+            <input type="password" name="nova_senha" id="nova_senha" />
 
             <br> <br>
 

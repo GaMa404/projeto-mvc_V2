@@ -11,7 +11,7 @@
 </head>
 <body>
     <form action="/login/auth" method="post">
-
+        
     <label>E-mail:</label>
     <input name="email" type="text" />
 
@@ -29,7 +29,6 @@
     <a href="/cadastro/form"> Não tem uma conta? Clique aqui para se cadastrar </a>
     
     <br> <br>
-
 
     <button type="submit">Entrar</button>
     </form>

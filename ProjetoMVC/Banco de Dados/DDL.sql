@@ -83,3 +83,5 @@ CREATE TABLE usuario
 
 INSERT INTO usuario (nome, email, senha) VALUES ("a", "aaaa@gmail.com", sha1("123"));
 select * from usuario;
+
+select sha1('oi');

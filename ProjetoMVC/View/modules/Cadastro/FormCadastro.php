@@ -15,21 +15,21 @@
             <input type="hidden" value="<?= $model->id ?>" name="id" />
 
             <label for="nome"> Nome: </label>
-            <input type="text" name="nome" id="nome" value="<?= $model->nome ?>" />
+            <input type="text" name="nome" id="nome" />
 
             <br> <br>
 
             <label for="email"> Email: </label>
-            <input type="text" name="email" id="email" value="<?= $model->email ?>" />
+            <input type="text" name="email" id="email"  />
 
             <br> <br>
 
             <label for="senha"> Senha: </label>
-            <input type="password" name="senha" id="senha" value="<?= $model->senha ?>" />
+            <input type="password" name="nova_senha" id="nova_senha" />
 
             <br> <br>
 
-            <button type="submit"> Enviar: </button>
+            <button type="submit"> Enviar </button>
         </fieldset>
     </form>
 </body>
