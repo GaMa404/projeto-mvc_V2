@@ -37,7 +37,8 @@ class CadastroController extends Controller
         $cadastro->id = $_POST['id'];
         $cadastro->nome = $_POST['nome'];
         $cadastro->email = $_POST['email'];
-        $cadastro->nova_senha = $_POST['nova_senha'];
+        $cadastro->senha = $_POST['senha'];
+
         $cadastro->save();
 
         header("Location: /login");

@@ -12,7 +12,7 @@ CREATE USER 'aluno'@'localhost' IDENTIFIED BY '123';
 REVOKE ALL, GRANT OPTION FROM 'aluno'@'localhost';
 
 -- Adicionando apenas privilégios que o usuário terá acesso (nesse caso, insert, select e update)
-GRANT INSERT, SELECT, UPDATE ON db_sistemaV2.* TO 'aluno'@'localhost' IDENTIFIED BY '123';
+-- GRANT INSERT, SELECT, UPDATE ON db_sistemaV2.* TO 'aluno'@'localhost' IDENTIFIED BY '123';
 
 -- Liberar privilégios ao usuário
 FLUSH PRIVILEGES;
@@ -85,3 +85,5 @@ INSERT INTO usuario (nome, email, senha) VALUES ("a", "aaaa@gmail.com", sha1("12
 select * from usuario;
 
 select sha1('oi');
+
+UPDATE usuario SET senha = sha1("321") WHERE email = "aaaa@gmail.com";

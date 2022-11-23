@@ -25,7 +25,7 @@
             <br> <br>
 
             <label for="senha"> Senha: </label>
-            <input type="password" name="nova_senha" id="nova_senha" />
+            <input type="password" name="senha" id="senha" />
 
             <br> <br>
 

@@ -6,7 +6,7 @@ use ProjetoMVC\DAO\CadastroDAO;
 
 class CadastroModel
 {
-    public $id, $nome, $email, $nova_senha;
+    public $id, $nome, $email, $senha;
 
     public function save()
     {

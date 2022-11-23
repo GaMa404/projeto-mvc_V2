@@ -19,7 +19,7 @@
             <input type="hidden" value="<?= $model->nome?>" name="nome" />
 
             <label for="email"> Email: </label>
-            <input type="text" name="email" id="email" />
+            <input type="text" name="email_digitado" id="email_digitado" />
 
             <br> <br>
 
