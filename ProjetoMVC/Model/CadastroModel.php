@@ -7,6 +7,7 @@ use ProjetoMVC\DAO\CadastroDAO;
 class CadastroModel
 {
     public $id, $nome, $email, $senha;
+    public $email_digitado, $nova_senha, $senha_atual;
 
     public function save()
     {
@@ -16,45 +17,27 @@ class CadastroModel
         {
             $dao->insert($this);
         }
-        else
-        {
-            $dao->update($this);
-        }
 
         header('Location: /login');
     } 
 
-    public function getAllRows()
+    public function update()
     {
         $dao = new CadastroDAO();
 
-        $this->rows = $dao->select();
+        $dao->update($this);
+
+        header('Location: /login');
     }
 
-    public function getById(int $id)
+    public function getSenhaByEmail($email_digitado)
     {
         $dao = new CadastroDAO();
 
-        $obj = $dao->selectById($id);
+        $obj = $dao->selectByEmail($email_digitado);
 
         return ($obj) ? $obj : new CadastroModel();
     }
-
-    /*public function autenticar($email)
-    {
-        $dao = new CadastroDAO();
-
-        $email_cadastrado = $dao->selectEmail($this->email);
-        
-        if (!is_object($email_cadastrado))
-        {
-            $dao->insert($email);
-        }
-        else
-        {
-            null;
-        }
-    }*/
 
 
 }

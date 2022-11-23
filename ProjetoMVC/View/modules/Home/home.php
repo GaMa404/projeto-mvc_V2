@@ -8,5 +8,9 @@
 </head>
 <body>
     <label> Menu </label>
+    
+    <br> <br>
+
+    <a href="/cadastro/form_update"> Mudar senha </a>
 </body>
 </html>

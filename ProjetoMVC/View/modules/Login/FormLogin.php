@@ -22,10 +22,6 @@
 
     <br> <br>
 
-    <a href="/cadastro/update"> Mudar senha </a>
-
-    <br> <br>
-
     <a href="/cadastro/form"> Não tem uma conta? Clique aqui para se cadastrar </a>
     
     <br> <br>

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<form action="/cadastro/save" method="post">
+<form action="/cadastro/update" method="post">
         <fieldset>
             <legend> Alterar Senha </legend>
 

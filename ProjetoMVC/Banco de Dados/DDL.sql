@@ -12,14 +12,13 @@ CREATE USER 'aluno'@'localhost' IDENTIFIED BY '123';
 REVOKE ALL, GRANT OPTION FROM 'aluno'@'localhost';
 
 -- Adicionando apenas privilégios que o usuário terá acesso (nesse caso, insert, select e update)
--- GRANT INSERT, SELECT, UPDATE ON db_sistemaV2.* TO 'aluno'@'localhost' IDENTIFIED BY '123';
+GRANT INSERT, SELECT, UPDATE ON db_sistemaV2.* TO 'aluno'@'localhost';
 
 -- Liberar privilégios ao usuário
 FLUSH PRIVILEGES;
 
 -- Mostrar privilégios que o usuário tem acesso
-SHOW GRANTS FOR aluno@localhost;
-
+SHOW GRANTS FOR 'aluno'@'localhost';
 
 CREATE TABLE categoria_produto
 (

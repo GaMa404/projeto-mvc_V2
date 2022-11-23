@@ -31,47 +31,22 @@ class CadastroDAO extends DAO
 
         $stmt = $this->conexao->prepare($sql);
 
-        $stmt->bindValue(1, $model->senha);
-        $stmt->bindValue(2, $model->email);
+        $stmt->bindValue(1, $model->nova_senha);
+        $stmt->bindValue(2, $model->email_digitado);
         
         $stmt->execute();
     }
 
-    public function select()
+    public function selectByEmail($email_digitado)
     {
-        $sql = 'SELECT * FROM usuario';
+        $sql = 'SELECT u.senha FROM usuario u WHERE email = ?';
 
         $stmt = $this->conexao->prepare($sql);
 
-        $stmt->execute();
+        $stmt->bindValue(1, $email_digitado);
 
-        return $stmt->fetchAll();
-    }
-
-    public function selectById(int $id)
-    {
-        include_once 'Model/CadastroModel.php';
-
-        $sql = 'SELECT * FROM usuario WHERE id=?';
-
-        $stmt = $this->conexao->prepare($sql);
-
-        $stmt->bindValue(1, $id);
         $stmt->execute();
 
         return $stmt->fetchObject("ProjetoMVC\Model\CadastroModel");
     }
-
-    /*public function selectEmail($email)
-    {
-        $sql = 'SELECT * FROM usuario WHERE email=?';
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $email);
-        $stmt->execute();
-
-        return $stmt->fetchObject("ProjetoMVC\Model\CadastroModel");
-    }*/
-
-
 }

@@ -10,25 +10,8 @@ class CadastroController extends Controller
     {
         $model = new CadastroModel();
 
-        if(isset($_GET['id']))
-            $model = $model->getById( (int) $_GET['id']);
-
         parent::render('Cadastro/FormCadastro', $model);
     }
-
-    /*public static function auth()
-    {
-        $model = new CadastroModel();
-
-        $model->email = $_POST['email'];
-
-        $cadastro_usuario = $model->autenticar($model->email);
-
-        if ($cadastro_usuario == null)
-        {
-            header("Location: /cadastro?erro=true");
-        }
-    }*/
 
     public static function save()
     {
@@ -44,10 +27,30 @@ class CadastroController extends Controller
         header("Location: /login");
     }
 
-    public static function update()
+    public static function formUpdate()
     {
         $model = new CadastroModel();
-
         parent::render('Cadastro/FormSenha', $model);
+    }
+
+    public static function update()
+    {
+        $cadastro = new CadastroModel();
+
+        $cadastro->id = $_POST['id'];
+        $cadastro->nome = $_POST['nome'];
+        $cadastro->email_digitado = $_POST['email_digitado'];
+        $cadastro->senha_atual = $_POST['senha_atual'];
+        $cadastro->nova_senha = $_POST['nova_senha'];
+
+        $senha = $cadastro->getSenhaByEmail($_POST['email_digitado']);
+
+        if ($senha == sha1($cadastro->senha_atual))
+        {
+            if($cadastro->nova_senha !== $cadastro->senha_atual)
+            {
+                $cadastro->update();
+            }         
+        }
     }
 }

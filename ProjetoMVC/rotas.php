@@ -32,6 +32,10 @@ switch($uri_parse)
         CadastroController::save();
     break;
 
+    case '/cadastro/form_update':
+        CadastroController::formUpdate();
+    break;
+
     case '/cadastro/update';
         CadastroController::update();
     break;
